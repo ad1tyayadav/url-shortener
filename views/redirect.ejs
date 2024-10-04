@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL page</title>
+</head>
+
+<body>
+    <h1>Your Short URL Generated</h1>
+    <b>you short url is :</b>
+    <% if (locals.id) { %>
+        <a href="http://localhost:8000/url/<%= id %>">http://localhost:8000/url<%= id %></a>
+        <% } %>
+</body>
+
+</html>

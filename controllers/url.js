@@ -29,16 +29,15 @@ const handlePostUrl = async (req, res) => {
         res.status(400).json({ error: "Url is required" })
     }
     const id = shortid.generate(); // shortid ko generate() se chalaya
-
-    const shortUrl = `http://localhost:${PORT}/${id}`;
-
     const newUrl = new URL({
         fullUrl: fullUrl,
-        shortUrl: shortUrl
+        shortUrl: id
     });
 
     await newUrl.save();
-    res.json({ shortUrl });
+    res.render("redirect", { id: id });
+
+    return res.render("redirect")
 }
 
 module.exports = {

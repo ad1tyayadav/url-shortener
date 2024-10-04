@@ -1,5 +1,6 @@
 const express = require("express");
 const urlRouter = require("./routes/url");
+const staticRoute = require("./routes/staticRoutes")
 const app = express();
 
 const mongoose = require("mongoose");
@@ -10,11 +11,13 @@ mongoose.connect("mongodb://127.0.0.1:27017/urlshortner")
     .catch(err => console.log("Error in connecting database", err))
 
 app.use(express.urlencoded({ extended: true }));
+app.set('view engine', 'ejs');
+app.set('views', './views');
 
 
-app.post('/url', urlRouter)
+app.use('/url', urlRouter);
 
-app.use('/', urlRouter)
+app.use('/', staticRoute)
 
 app.listen(PORT, () => {
     console.log("Server is running on port", PORT);
