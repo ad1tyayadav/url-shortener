@@ -1,6 +1,5 @@
 const URL = require("../models/url")
 const shortid = require("shortid")
-const PORT = 8000;
 
 const handleGetUrl = async (req, res) => {
     const id = req.params.id;
