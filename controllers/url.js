@@ -23,11 +23,11 @@ const handleGetUrl = async (req, res) => {
 };
 
 const handlePostUrl = async (req, res) => {
-    const fullUrl = req.body.url; // Lowercase 'url' key body se li
+    const fullUrl = req.body.url;
     if (!fullUrl) {
         res.status(400).json({ error: "Url is required" })
     }
-    const id = shortid.generate(); // shortid ko generate() se chalaya
+    const id = shortid.generate();
     const newUrl = new URL({
         fullUrl: fullUrl,
         shortUrl: id
